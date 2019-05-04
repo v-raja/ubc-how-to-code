@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="shoppingEditForm">
+      <div class="row">
+        <div class="col-sm-3 form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" class="form-control" formControlName="name">
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" class="form-control" formControlName="amount" pattern="[1-9]+[0-9]*$">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 form-group">
+          <div class="btn-group" #unitGroup>
+            <label *ngFor="let unit of units" class="btn btn-default" [ngClass]="{'active': unit === 'units'}">
+              <input type="radio" formControlName="unit" [value]="unit" (click)="onUnitClick(input)" #input>{{unit}}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div *ngIf="!editMode">
+            <button class="btn btn-success" type="button" [disabled]="!shoppingEditForm.valid" (click)="onAdd()">Add</button>
+            <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+          </div>
+          <div *ngIf="editMode">
+            <button class="btn btn-success" type="button" [disabled]="!shoppingEditForm.valid" (click)="onUpdate()">Update</button>
+            <button class="btn btn-danger" type="button" (click)="onDelete()">Delete</button>
+            <button class="btn btn-primary" type="button" (click)="onClear()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

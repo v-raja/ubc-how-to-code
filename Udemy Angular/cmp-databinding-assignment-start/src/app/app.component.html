@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <h3 class="text-center">Bind it!</h3>
+      <app-game-control (numberGenerated)="onNumber($event)"></app-game-control>
+      <br>
+      <hr>
+      <br>
+      <div *ngFor="let num of numbers" class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-12 col-sm-offset-0">
+          <app-odd *ngIf="num % 2 !== 0">
+            {{num}}
+          </app-odd>
+          <app-even *ngIf="num % 2 === 0" [number]="num">
+            {{num}}
+          </app-even>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

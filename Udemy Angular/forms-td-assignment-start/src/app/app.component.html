@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #formElement="ngForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" ngModel email required id="email" name="email" class="form-control" #email="ngModel">
+        </div>
+        <span *ngIf="!email.valid && email.touched" class="help-block">Please enter a valid email address</span>
+        <div class="form-group">
+          <label for="subscription">Subscription</label>
+          <select class="form-control" id="subscription" [ngModel]="defaultSubsctiption" name="subscription">
+            <option *ngFor="let sub of subsctiptions" [value]="sub">{{sub}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" ngModel required #password="ngModel">
+        </div>
+        <span *ngIf="!password.valid && password.touched" class="help-block">Please enter a valid password</span>
+        <span *ngIf="!formElement.valid && formElement.touched" class="help-block" style="color: red;">
+          From is invalid!
+        </span>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div *ngIf="submitted" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h3>Your data:</h3>
+      <p>Email: {{input.email}}</p>
+      <p>Subscription: {{input.subscription}}</p>
+      <p>Password: {{input.password}}</p>
+    </div>
+  </div>
+</div>

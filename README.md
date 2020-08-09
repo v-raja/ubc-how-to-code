@@ -1,3 +1,3 @@
-# online-courses
+# How to Code: Simple Data & Complex Data
 
-Nothing to see here.. this is a personal repo to keep track of files for online courses
+Solutions to all exercises from UBC's How to Code: [Simple Data](https://www.edx.org/course/how-to-code-simple-data) & [Complex Data](https://www.edx.org/course/how-to-code-complex-data)
